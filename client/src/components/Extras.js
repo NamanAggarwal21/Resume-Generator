@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { TextField, Button, Container, Divider } from "@material-ui/core";
-import { Card, CardHeader, CardContent } from "@material-ui/core";
+import { TextField, Button, Divider } from "@material-ui/core";
 import axios from "axios";
 import { saveAs } from "file-saver";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
@@ -8,8 +7,7 @@ import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import GetAppIcon from "@material-ui/icons/GetApp";
-import { Row, Col } from "react-bootstrap";
-import { Paper, withStyles, Grid } from "@material-ui/core";
+import { withStyles, Grid } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -21,12 +19,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 
 const styles = (theme) => ({
-  margin: {
-    margin: theme.spacing(1.5),
-  },
-  padding: {
-    padding: theme.spacing(1),
-  },
+
 });
 
 class Experience extends Component {
@@ -103,15 +96,14 @@ class Experience extends Component {
 
   render() {
     const { values } = this.props;
-    const { classes } = this.props;
 
     return (
-      <Paper className={classes.padding}>
-        <Card>
-          <CardHeader title="Extra Details" />
-        </Card>
-        <CardContent>
-          <div className={classes.margin}>
+      <div className="main-parent">
+        
+        <div className="header" >Extra Details</div>
+
+        
+        <div className="header-container">
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid
                 item
@@ -120,10 +112,11 @@ class Experience extends Component {
                 alignItems="flex-end"
                 alignContent="flex-end"
               >
-                <h5>
-                  <CheckCircleIcon />
-                  <span className="pl-3">Skills/Languages</span>
-                </h5>
+                <h2>
+                  <CheckCircleIcon /><span>{" "}</span>
+                  <span className="pl-3">Languages / Skills</span>
+                </h2>
+
               </Grid>
               <Grid item xs={0} lg={8} />
               <br />
@@ -225,10 +218,10 @@ class Experience extends Component {
                 alignItems="flex-end"
                 alignContent="flex-end"
               >
-                <h5>
-                  <CheckCircleIcon />
-                  <span className="pl-3">Interest</span>
-                </h5>
+                <h2>
+                  <CheckCircleIcon /><span>{" "}</span>
+                  <span className="pl-3">Interests / Hobby</span>
+                </h2>
               </Grid>
               <Grid item xs={0} lg={8} />
               <br />
@@ -318,11 +311,8 @@ class Experience extends Component {
               </Grid>
             </Grid>
           </div>
-        </CardContent>
-        <Container className={classes.margin}>
-          <Row>
-            <Col xs={4} />
-            <Col xs={2}>
+        
+        <div className="next-prev">
               <Button
                 variant="contained"
                 color="secondary"
@@ -331,8 +321,6 @@ class Experience extends Component {
               >
                 Back
               </Button>
-            </Col>
-            <Col xs={2}>
               <Button
                 variant="contained"
                 disabled
@@ -342,24 +330,26 @@ class Experience extends Component {
               >
                 Next
               </Button>
-            </Col>
-            <Col xs={4} />
-          </Row>
-          <br />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={this.createAndDownloadPDF}
-            endIcon={<GetAppIcon />}
-          >
-            Download Resume
+        </div>
+        <div className="download-btn">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.createAndDownloadPDF}
+              endIcon={<GetAppIcon />}
+            >
+              Download Resume
+            </Button>
+        </div>
+
+        <div className="end-footer">
+          <p className="text-center text-muted">Page 5</p>
+          <Button variant="contained" color="primary" onClick={this.save}>
+            {" "}
+            Save
           </Button>
-        </Container>
-        <p className="text-center text-muted">Page 5</p>
-        <Button variant="contained" color="primary" onClick={this.save}>
-          {" "}
-          Save
-        </Button>
+        </div>
+
         <Snackbar
           open={this.state.open}
           autoHideDuration={6000}
@@ -374,7 +364,7 @@ class Experience extends Component {
             Your data has been saved successfully !
           </Alert>
         </Snackbar>
-      </Paper>
+      </div>
     );
   }
 }

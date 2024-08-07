@@ -105,9 +105,7 @@ export class Resume extends Component {
       user: this.props.user,
       resume: this.state,
     };
-    const promise = axios
-      .post("/save", data)
-      .then((res) => res)
+    const promise = axios.post("/save", data).then((res) => res)
       .catch((err) => {
         console.log(err);
       });
@@ -236,13 +234,14 @@ export class Resume extends Component {
       interest5,
       interest6,
     };
+    
     switch (step) {
       case 1:
         return (
           <div>
             <NavBar />
-            <div className="App mt-3">
-              <div className="container col-lg-10 mx-auto text-center">
+            <div className="App ">
+              <div className="container ">
                 <Profile
                   nextStep={this.nextStep}
                   handleChange={this.handleChange}
@@ -257,8 +256,8 @@ export class Resume extends Component {
         return (
           <div>
             <NavBar />
-            <div className="App mt-3">
-              <div className="container col-lg-10 mx-auto text-center">
+            <div className="App ">
+              <div className="container">
                 <Education
                   nextStep={this.nextStep}
                   prevStep={this.prevStep}
@@ -274,8 +273,8 @@ export class Resume extends Component {
         return (
           <div>
             <NavBar />
-            <div className="App mt-3">
-              <div className="container col-lg-8 mx-auto text-center">
+            <div className="App ">
+              <div className="container ">
                 <Projects
                   nextStep={this.nextStep}
                   prevStep={this.prevStep}
@@ -291,8 +290,8 @@ export class Resume extends Component {
         return (
           <div>
             <NavBar />
-            <div className="App mt-3">
-              <div className="container col-lg-10 mx-auto text-center">
+            <div className="App ">
+              <div className="container">
                 <Experience
                   nextStep={this.nextStep}
                   prevStep={this.prevStep}
@@ -308,8 +307,8 @@ export class Resume extends Component {
         return (
           <div>
             <NavBar />
-            <div className="App mt-3">
-              <div className="container col-lg-10 mx-auto text-center">
+            <div className="App">
+              <div className="container">
                 <Extras
                   prevStep={this.prevStep}
                   handleChange={this.handleChange}

@@ -26,7 +26,8 @@
     "react-multi-carousel": "^2.8.3",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
-    "reactstrap": "^8.9.0"
+    "reactstrap": "^8.9.0",
+    "resume-builder": "file:.."
   },
   "proxy": "http://localhost:4000/",
   "scripts": {

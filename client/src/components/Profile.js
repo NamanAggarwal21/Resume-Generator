@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { TextField, Button, Container } from "@material-ui/core";
-import { Card, CardHeader, CardContent } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import EmailIcon from "@material-ui/icons/Email";
@@ -12,31 +11,21 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { Row, Col } from "react-bootstrap";
-import { Paper, withStyles, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MuiAlert from '@mui/material/Alert';
+import './styles.css';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 
-const styles = (theme) => ({
-  margin: {
-    margin: theme.spacing(1),
-  },
-  padding: {
-    padding: theme.spacing(1),
-  },
-});
 
 class Profile extends Component {
-  state = {
-    open: false,
-  };
+  state = {open: false,};
 
   continue = (e) => {
     e.preventDefault();
@@ -84,18 +73,17 @@ class Profile extends Component {
       </IconButton>
     </React.Fragment>
   );
+  
 
   render() {
     const { values } = this.props;
-    const { classes } = this.props;
 
     return (
-      <Paper className={classes.padding}>
-        <Card>
-          <CardHeader title="Personal Details" />
-        </Card>
-        <CardContent>
-          <div className={classes.margin}>
+      <div className="main-parent">
+          
+        <div className="header" >Personal Details</div>
+        
+          <div className="header-container">
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid item md={6} sm={12} xs={12} lg={6}>
                 <TextField
@@ -270,10 +258,9 @@ class Profile extends Component {
                 />
               </Grid>
             </Grid>
-            <Container className={classes.margin}>
-              <Row>
-                <Col lg={3} xs={0} />
-                <Col lg={3} xs={5}>
+            
+            <div className="next-prev">
+              
                   <Button
                     variant="contained"
                     color="secondary"
@@ -283,8 +270,6 @@ class Profile extends Component {
                   >
                     Back
                   </Button>
-                </Col>
-                <Col lg={3} xs={5}>
                   <Button
                     variant="contained"
                     color="secondary"
@@ -293,17 +278,19 @@ class Profile extends Component {
                   >
                     Next
                   </Button>
-                </Col>
-                <Col lg={3} xs={1} />
-              </Row>
-            </Container>
+                
+            </div>
+            
           </div>
-        </CardContent>
-        <p className="text-center text-muted">Page 1</p>
-        <Button variant="contained" color="primary" onClick={this.save}>
-          {" "}
-          Save
-        </Button>
+        
+        <div className="end-footer">
+          <p className="text-center text-muted">Page 1</p>
+          <Button variant="contained" color="primary" onClick={this.save}>
+            Save
+          </Button>
+        </div>
+        
+        
         <Snackbar
           open={this.state.open}
           autoHideDuration={6000}
@@ -319,9 +306,10 @@ class Profile extends Component {
             Your data has been saved successfully !
           </Alert>
         </Snackbar>
-      </Paper>
+
+      </div>
     );
   }
 }
 
-export default withStyles(styles)(Profile);
+export default Profile;

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
+import {TextField, Button, Divider} from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -9,12 +8,12 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import EventSeatIcon from '@material-ui/icons/EventSeat';
 import BusinessIcon from '@material-ui/icons/Business';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import { withStyles, Grid} from '@material-ui/core';
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MuiAlert from '@mui/material/Alert';
+import './styles.css'
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -89,27 +88,23 @@ class Experience extends Component {
 
   render () {
     const {values} = this.props;
-    const {classes} = this.props;
 
     return (
-      <Paper className={classes.padding}>
-        <Card>
-          <CardHeader title="Experience Details" />
-        </Card>
-        <CardContent>
-          <div className={classes.margin}>
+      <div className="main-parent">
+        
+          <div className='header'>Experience Details</div>
+       
+          <div className="header-container">
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid
                 item
                 xs={12}
                 lg={4}
-                alignItems="flex-end"
-                alignContent="flex-end"
               >
-                <h5>
-                  <CheckCircleIcon />
+                <h2>
+                  <CheckCircleIcon /><span>{" "}</span>
                   <span className="pl-3">Experience 1</span>
-                </h5>
+                </h2>
               </Grid>
               <Grid item xs={0} lg={8} />
 
@@ -200,13 +195,11 @@ class Experience extends Component {
                 item
                 xs={12}
                 lg={4}
-                alignItems="flex-end"
-                alignContent="flex-end"
               >
-                <h5>
-                  <CheckCircleIcon />
+                <h2>
+                  <CheckCircleIcon /><span>{" "}</span>
                   <span className="pl-3">Experience 2</span>
-                </h5>
+                </h2>
               </Grid>
               <Grid item xs={0} lg={8} />
               <br />
@@ -291,11 +284,9 @@ class Experience extends Component {
               </Grid>
             </Grid>
           </div>
-        </CardContent>
-        <Container className={classes.margin}>
-          <Row>
-            <Col xs={4} />
-            <Col xs={2}>
+        
+        <div className="next-prev">
+         
               <Button
                 variant="contained"
                 color="secondary"
@@ -304,8 +295,6 @@ class Experience extends Component {
               >
                 Back
               </Button>
-            </Col>
-            <Col xs={2}>
               <Button
                 variant="contained"
                 color="secondary"
@@ -314,15 +303,18 @@ class Experience extends Component {
               >
                 Next
               </Button>
-            </Col>
-            <Col xs={4} />
-          </Row>
-        </Container>
-        <p className="text-center text-muted">Page 4</p>
-        <Button variant="contained" color="primary" onClick={this.save}>
-          {" "}
-          Save
-        </Button>
+            
+        </div>
+
+        <div className="end-footer">
+          <p className="text-center text-muted">Page 4</p>
+          <Button variant="contained" color="primary" onClick={this.save}>
+            {" "}
+            Save
+          </Button>
+        </div>
+
+
         <Snackbar
           open={this.state.open}
           autoHideDuration={6000}
@@ -337,7 +329,8 @@ class Experience extends Component {
             Your data has been saved successfully !
           </Alert>
         </Snackbar>
-      </Paper>
+
+      </div>
     );
   }
 }

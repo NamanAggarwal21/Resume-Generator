@@ -1,4 +1,2 @@
-/node_modules
-Resume.pdf
-.DS_Store
-sample_resume_output.png
+node_modules
+.env

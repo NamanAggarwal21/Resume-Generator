@@ -35,7 +35,7 @@ const SignUp = () => {
     <>
     <NavBar></NavBar>
     <br/>
-      <Button
+        <Button
           component={Link}
           to="/"
           variant="contained"
@@ -50,7 +50,7 @@ const SignUp = () => {
       </header>
       <br/>
       <main
-        style={{
+          style={{
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",

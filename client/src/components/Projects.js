@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
+import {TextField, Button, Divider} from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import LinkIcon from '@material-ui/icons/Link';
 import TitleIcon from '@material-ui/icons/Title';
 import DescriptionIcon from '@material-ui/icons/Description';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import { withStyles, Grid} from '@material-ui/core';
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -86,18 +84,17 @@ class Projects extends Component {
 
   render () {
     const {values} = this.props;
-    const {classes} = this.props;
-
+    
     return (
-      <Paper className={classes.padding}>
-        <Card>
-          <CardHeader title="Projects Developed" />
-        </Card>
-        <CardContent>
-          <div className={classes.margin}>
+      <div className="main-parent">
+        
+        <div className="header" >Projects Developed</div>
+
+        
+        <div className="header-container">
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid item xs={12} lg={12}>
-                <h5>Project 1</h5>
+                <h2>Project 1</h2>
               </Grid>
               <Grid item md={12} sm={12} xs={12} lg={12}>
                 <TextField
@@ -163,7 +160,7 @@ class Projects extends Component {
             <br />
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid item xs={12} lg={12}>
-                <h5>Project 2</h5>
+                <h2>Project 2</h2>
               </Grid>
               <Grid item md={12} sm={12} xs={12} lg={12}>
                 <TextField
@@ -229,7 +226,7 @@ class Projects extends Component {
             <br />
             <Grid container spacing={2} alignItems="center" lg={12}>
               <Grid item xs={12} lg={12}>
-                <h5>Project 3</h5>
+                <h2>Project 3</h2>
               </Grid>
               <Grid item md={12} sm={12} xs={12} lg={12}>
                 <TextField
@@ -288,38 +285,35 @@ class Projects extends Component {
               </Grid>
             </Grid>
           </div>
-        </CardContent>
-        <Container className={classes.margin}>
-          <Row>
-            <Col xs={4} />
-            <Col xs={2}>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={this.back}
-                startIcon={<NavigateBeforeIcon />}
-              >
-                Back
-              </Button>
-            </Col>
-            <Col xs={2}>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={this.continue}
-                endIcon={<NavigateNextIcon />}
-              >
-                Next
-              </Button>
-            </Col>
-            <Col xs={4} />
-          </Row>
-        </Container>
-        <p className="text-center text-muted">Page 3</p>
-        <Button variant="contained" color="primary" onClick={this.save}>
-          {" "}
-          Save
-        </Button>
+        
+
+          <div className="next-prev">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.back}
+                  startIcon={<NavigateBeforeIcon />}
+                >
+                  Back
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.continue}
+                  endIcon={<NavigateNextIcon />}
+                >
+                  Next
+                </Button>
+          </div>
+
+        <div className="end-footer">
+          <p className="text-center text-muted">Page 3</p>
+          <Button variant="contained" color="primary" onClick={this.save}>
+            {" "}
+            Save
+          </Button>
+        </div>
+        
         <Snackbar
           open={this.state.open}
           autoHideDuration={6000}
@@ -334,7 +328,8 @@ class Projects extends Component {
             Your data has been saved successfully !
           </Alert>
         </Snackbar>
-      </Paper>
+
+      </div>
     );
   }
 }

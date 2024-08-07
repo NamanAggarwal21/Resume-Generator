@@ -56,7 +56,12 @@ const Home = () => {
       </Box>
       <Divider></Divider>
 
-      <br/><br/>
+      
+
+      <div className="introduction">
+        LETS GET STARTED!
+      </div>
+
       <main style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
         <Button
           component={Link}
